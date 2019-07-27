@@ -17,3 +17,12 @@ do
     echo $tag
     docker tag $image_id "${DOCKER_REPO}:${tag}"
 done
+
+if [ "${SOURCE_BRANCH}" != "master" ]; then
+    exit 0
+fi
+
+for tag in $(sudo docker images ${DOCKER_REPO} --format "{{.Tag}}");
+do
+    docker push "${DOCKER_REPO}:${tag}"
+done
