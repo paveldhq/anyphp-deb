@@ -1,9 +1,9 @@
 language: bash
 services: docker
 env:
-  - VERSION=0.1 BASE_IMAGE=ubuntu:bionic BASE_IMAGE_TAG="ubuntu-bionic" EXTRA_TAGS="ubuntu1804;ubuntu"
-  - VERSION=0.1 BASE_IMAGE=debian:stretch-slim BASE_IMAGE_TAG="debian-stretch" EXTRA_TAGS="debian9;stratch"
-  - VERSION=0.1 BASE_IMAGE=debian:buster-slim BASE_IMAGE_TAG="debian-buster" EXTRA_TAGS="debian10;buster;latest"
+  - VERSION=0.2 DOCKERFILE="Dockerfile-ubuntu" BASE_IMAGE=ubuntu:bionic BASE_IMAGE_TAG="ubuntu-bionic" EXTRA_TAGS="ubuntu1804;ubuntu"
+  - VERSION=0.2 DOCKERFILE="Dockerfile-debian" BASE_IMAGE=debian:stretch-slim BASE_IMAGE_TAG="debian-stretch" EXTRA_TAGS="debian9;stratch"
+  - VERSION=0.2 DOCKERFILE="Dockerfile-debian" BASE_IMAGE=debian:buster-slim BASE_IMAGE_TAG="debian-buster" EXTRA_TAGS="debian10;buster;latest"
 script:
   - "./hooks/build.sh"
 after_script:

@@ -1,4 +1,4 @@
-ARG BASE_IMAGE=debian:buster-slim
+ARG BASE_IMAGE=ubuntu:bionic
 
 FROM ${BASE_IMAGE}
 
@@ -18,3 +18,4 @@ RUN apt-get update && \
 RUN dpkg-reconfigure locales
 
 RUN add-apt-repository ppa:ondrej/php
+RUN apt-get update

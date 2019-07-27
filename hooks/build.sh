@@ -7,6 +7,7 @@ TAG="${DOCKER_REPO}${VERSION:+:${VERSION}}${BASE_IMAGE_TAG:+-${BASE_IMAGE_TAG}}"
 set -x
 
 docker build . \
+    --file "$DOCKERFILE"
     --no-cache \
     -t "$TAG" \
     --build-arg BASE_IMAGE="${BASE_IMAGE}"
