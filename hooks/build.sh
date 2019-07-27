@@ -9,8 +9,7 @@ set -x
 docker build . \
     --no-cache \
     -t "$TAG" \
-    --build-arg version=$VERSION \
-    --build-arg base_image=$BASE_IMAGE
+    --build-arg BASE_IMAGE=$BASE_IMAGE
 
 image_id=$(docker images $TAG --format "{{.ID}}")
 for tag in ${EXTRA_TAGS//;/$'\n'}
@@ -18,4 +17,3 @@ do
     echo $tag
     docker tag $image_id "${DOCKER_REPO}:${tag}"
 done
-docker run --rm --entrypoint echo "$TAG" "Hello $hello"
