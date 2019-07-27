@@ -1,9 +1,7 @@
 language: bash
 services: docker
 env:
-  - VERSION="0.1" BASE_IMAGE="ubuntu:xenial" BASE_IMAGE_TAG="ubuntu-xenial" EXTRA_TAGS="ubuntu1604"
   - VERSION=0.1 BASE_IMAGE=ubuntu:bionic BASE_IMAGE_TAG="ubuntu-bionic" EXTRA_TAGS="ubuntu1804"
-  - VERSION=0.1 BASE_IMAGE=debian:jessie-slim BASE_IMAGE_TAG="debian-jessie" EXTRA_TAGS="debian8-01"
   - VERSION=0.1 BASE_IMAGE=debian:stretch-slim BASE_IMAGE_TAG="debian-stretch" EXTRA_TAGS="debian9-01"
   - VERSION=0.1 BASE_IMAGE=debian:buster-slim BASE_IMAGE_TAG="debian-buster" EXTRA_TAGS="debian10-01;latest"
 script:
