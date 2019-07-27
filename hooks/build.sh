@@ -9,7 +9,7 @@ set -x
 docker build . \
     --no-cache \
     -t "$TAG" \
-    --build-arg BASE_IMAGE=$BASE_IMAGE
+    --build-arg BASE_IMAGE="${BASE_IMAGE}"
 
 image_id=$(docker images $TAG --format "{{.ID}}")
 for tag in ${EXTRA_TAGS//;/$'\n'}
