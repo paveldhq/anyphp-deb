@@ -6,3 +6,7 @@ env:
   - VERSION=0.1 BASE_IMAGE=debian:jessie-slim BASE_IMAGE_TAG="debian-jessie-0.1;debian8-01"
   - VERSION=0.1 BASE_IMAGE=debian:stretch-slim BASE_IMAGE_TAG="debian-stretch-0.1;debian9-01"
   - VERSION=0.1 BASE_IMAGE=debian:buster-slim BASE_IMAGE_TAG="debian-buster-0.1;debian10-01" EXTRA_TAGS="latest"
+script:
+  - "./hooks/build.sh"
+after_script:
+  - docker images
