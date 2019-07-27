@@ -18,10 +18,11 @@ do
     docker tag $image_id "${DOCKER_REPO}:${tag}"
 done
 
-if [ "${SOURCE_BRANCH}" != "master" ]; then
+if [ -z "${DOCKER_LOGIN}" ]; then
     exit 0
 fi
 
+echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_LOGIN" --password-stdin
 for tag in $(sudo docker images ${DOCKER_REPO} --format "{{.Tag}}");
 do
     docker push "${DOCKER_REPO}:${tag}"
